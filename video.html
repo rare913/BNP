@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Image</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="video-page-body">
+    <img id="displayImage" alt="Video Image">
+
+    <script>
+        // Get the `src` query parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const imgSrc = urlParams.get('src');
+
+        // Set the image source dynamically
+        const imgElement = document.getElementById('displayImage');
+        if (imgSrc) {
+            imgElement.src = imgSrc;
+        } else {
+            document.body.innerHTML = '<h1>No image specified</h1>';
+        }
+    </script>
+</body>
+</html>

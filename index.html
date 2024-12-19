@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bangladesh Nationalist Party-BNP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="./logo-removebg-preview.png" alt="" width="80%"></a>
+            <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" id="offcanvasNavbar" tabindex="-1"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="./logo-removebg-preview.png" alt=""
+                            width="80%"></h5>
+                    <button type="button" class="btn-close text-reset shadow-none border-0" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Slider -->
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <img src="./guy-shows-document-girl-group-young-freelancers-office-have-conversation-working.jpg"
+                    alt="Image 1">
+                <div class="text-overlay">Slide 1: Work Collaboration</div>
+            </div>
+            <div class="slide">
+                <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                    alt="Image 2">
+                <div class="text-overlay">Slide 2: Serene Scenery</div>
+            </div>
+            <div class="slide">
+                <img src="./guy-shows-document-girl-group-young-freelancers-office-have-conversation-working.jpg"
+                    alt="Image 3">
+                <div class="text-overlay">Slide 3: Teamwork in Action</div>
+            </div>
+            <div class="slide">
+                <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                    alt="Image 4">
+                <div class="text-overlay">Slide 4: Peaceful Moments</div>
+            </div>
+        </div>
+        <div class="navigation">
+            <button id="prev">&#10094;</button>
+            <button id="next">&#10095;</button>
+        </div>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prev = document.getElementById('prev');
+        const next = document.getElementById('next');
+
+        let index = 0;
+        let interval;
+
+        function showSlide(newIndex) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active', 'prev-slide', 'next-slide');
+                if (i === newIndex) {
+                    slide.classList.add('active');
+                } else if (i === (index - 1 + slides.length) % slides.length) {
+                    slide.classList.add('prev-slide');
+                } else if (i === (index + 1) % slides.length) {
+                    slide.classList.add('next-slide');
+                }
+            });
+            index = newIndex;
+        }
+
+        function nextSlide() {
+            const newIndex = (index + 1) % slides.length;
+            showSlide(newIndex);
+        }
+
+        function prevSlide() {
+            const newIndex = (index - 1 + slides.length) % slides.length;
+            showSlide(newIndex);
+        }
+
+        function startAutoplay() {
+            interval = setInterval(nextSlide, 3000);
+        }
+
+        function stopAutoplay() {
+            clearInterval(interval);
+        }
+
+        next.addEventListener('click', () => {
+            stopAutoplay();
+            nextSlide();
+            startAutoplay();
+        });
+
+        prev.addEventListener('click', () => {
+            stopAutoplay();
+            prevSlide();
+            startAutoplay();
+        });
+
+        showSlide(index);
+        startAutoplay();
+    </script>
+
+
+    <!-- About -->
+    <!-- Include AOS Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- About Us Section -->
+    <div class="home-about container" data-aos="fade-up">
+        <div class="row">
+            <div class="col col-12 col-md-2 ziaur-rahman" data-aos="fade-left">
+                <img src="./about-1.jpg">
+            </div>
+            <div class="col col-12 col-md-2 begom-khaleda-zia" data-aos="fade-left">
+                <img src="./about-2.jpg">
+            </div>
+            <div class="col col-12 col-md-2 tarique-rahman" data-aos="fade-left">
+                <img src="./about-3.jpg">
+            </div>
+            <div class="col col-12 col-md-6 right" data-aos="fade-right">
+                <h2>About Us</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse corporis soluta, ea enim ducimus sint
+                    recusandae nam suscipit harum! Assumenda sapiente ab maxime quasi eum error unde molestias!
+                    Cupiditate, aspernatur. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Esse corporis soluta, ea enim ducimus sint recusandae nam suscipit harum! Assumenda sapiente ab
+                    maxime quasi eum error unde molestias! Cupiditate, aspernatur.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <style>
+
+    </style>
+
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init({
+            duration: 1000, // Animation duration in milliseconds
+            once: true,     // Ensures each element animates only once
+        });
+    </script>
+
+
+    <!-- Member Option -->
+    <!-- Include AOS Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Member Section -->
+    <div class="member container">
+        <h1 class="text-center" data-aos="fade-down">Member</h1>
+        <div class="row">
+            <!-- Team Member Card -->
+            <div class="col col-6 col-sm-6 col-md-3" data-aos="zoom-in">
+                <img src="./team-member-1.webp" alt="Team Member">
+                <h2>John Doe</h2>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="col col-6 col-sm-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
+                <img src="./team-member-1.webp" alt="Team Member">
+                <h2>Jane Smith</h2>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="col col-6 col-sm-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+                <img src="./team-member-1.webp" alt="Team Member">
+                <h2>Mark Johnson</h2>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="col col-6 col-sm-6 col-md-3" data-aos="zoom-in" data-aos-delay="300">
+                <img src="./team-member-1.webp" alt="Team Member">
+                <h2>Sarah Brown</h2>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+
+    </style>
+
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init({
+            duration: 1000, // Animation duration in milliseconds
+            once: true,     // Ensures each element animates only once
+        });
+    </script>
+
+
+    <!-- News Section -->
+    <div class="news container">
+        <h1 class="text-center my-5" data-aos="fade-down">News</h1>
+        <div class="row">
+            <div class="col col-12 col-sm-12 col-md-12" style="animation-delay: 0.1s;">
+                <img src="./img_1.jpg.webp" alt="News Image 1">
+                <h1>Lorem ipsum dolor sit amet consectetur</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit cupiditate minus deserunt magnam a
+                    harum.</p>
+                <a href="#">Read more</a>
+            </div>
+            <div class="col col-12 col-sm-12 col-md-12" style="animation-delay: 0.2s;">
+                <img src="./img_2.jpg.webp" alt="News Image 2">
+                <h1>Lorem ipsum dolor sit amet consectetur</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit cupiditate minus deserunt magnam a
+                    harum.</p>
+                <a href="#">Read more</a>
+            </div>
+            <div class="col col-12 col-sm-12 col-md-12" style="animation-delay: 0.3s;">
+                <img src="./img_1.jpg.webp" alt="News Image 3">
+                <h1>Lorem ipsum dolor sit amet consectetur</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit cupiditate minus deserunt magnam a
+                    harum.</p>
+                <a href="#">Read more</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cols = document.querySelectorAll('.news .col');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('scroll-trigger');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            cols.forEach((col) => observer.observe(col));
+        });
+    </script>
+
+    <!-- Add AOS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+        integrity="sha384-GG9Q84txb/Ymd3hcPZIZ6+HGybOinSnHRyieuw9Ahe4E5E9HQ5DMTI++kT8Trm9K" crossorigin="anonymous" />
+
+    <!-- Add AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+        integrity="sha384-pJpny2srVwDFWxvF1ktSxCZXA8hxlY52M3lrdW3mCoVGV5fo1c/3FgECuzvH1axD"
+        crossorigin="anonymous"></script>
+
+    <!-- Video Section -->
+    <div class="video container" data-aos="fade-up" data-aos-duration="1000">
+        <h1 class="text-center my-5" data-aos="zoom-in" data-aos-duration="1000">Videos</h1>
+        <div class="row">
+            <div class="col col-12 col-md-8" style="animation-delay: 0.1s; position: relative;" data-aos="fade-right">
+                <a href="video.html?src=torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                    target="_blank">
+                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                        alt="Main Video">
+                    <div class="play-button"></div>
+                </a>
+            </div>
+            <div class="col col-12 col-md-4 sidebar" style="animation-delay: 0.2s;" data-aos="fade-left">
+                <h2>Sidebar</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.</p>
+                <ul>
+                    <li><a href="#">Related Link 1</a></li>
+                    <li><a href="#">Related Link 2</a></li>
+                    <li><a href="#">Related Link 3</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-12 col-sm-12 col-md-4" style="animation-delay: 0.3s; position: relative;"
+                data-aos="fade-up">
+                <a href="video.html?src=torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                    target="_blank">
+                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                        alt="Video 2">
+                    <div class="play-button"></div>
+                </a>
+            </div>
+            <div class="col col-12 col-sm-12 col-md-4" style="animation-delay: 0.4s; position: relative;"
+                data-aos="fade-up" data-aos-delay="100">
+                <a href="video.html?src=torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                    target="_blank">
+                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                        alt="Video 3">
+                    <div class="play-button"></div>
+                </a>
+            </div>
+            <div class="col col-12 col-sm-12 col-md-4" style="animation-delay: 0.5s; position: relative;"
+                data-aos="fade-up" data-aos-delay="200">
+                <a href="video.html?src=torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                    target="_blank">
+                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                        alt="Video 4">
+                    <div class="play-button"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        AOS.init({
+            offset: 120, // Distance from the bottom of the viewport to trigger animation
+            duration: 800, // Animation duration in ms
+            once: true // Whether animation should happen only once
+        });
+    </script>
+
+    <div class="image-section">
+        <h1 class="text-center my-5">Photo Gallery</h1>
+
+        <div class="image-modal container">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn img-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <img src="./guy-shows-document-girl-group-young-freelancers-office-have-conversation-working.jpg"
+                    alt="">
+            </button>
+
+            <!-- Main Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg" style="max-width: 90%; height: 90%;">
+                    <div class="modal-content" style="height: 90%;">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Gallery</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body d-flex flex-wrap gap-2">
+                            <div class="row">
+                                <!-- Dynamic images -->
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secondary Modal for individual image with navigation -->
+            <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" style="max-width: 80%; height: auto;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body position-relative">
+                            <button class="btn btn-dark position-absolute top-50 start-0 translate-middle-y"
+                                id="prevBtn">
+                                &#10094; <!-- Left arrow -->
+                            </button>
+                            <img id="modalImagePreview" src="" alt="" style="width: 100%; height: auto;">
+                            <button class="btn btn-dark position-absolute top-50 end-0 translate-middle-y" id="nextBtn">
+                                &#10095; <!-- Right arrow -->
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Secondary Modal for individual images -->
+            <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" style="max-width: 80%; height: auto;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img id="modalImagePreview" src="" alt="" style="width: 100%; height: auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn img-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <img src="./guy-shows-document-girl-group-young-freelancers-office-have-conversation-working.jpg"
+                    alt="">
+            </button>
+
+            <!-- Main Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg" style="max-width: 90%; height: 90%;">
+                    <div class="modal-content" style="height: 90%;">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Gallery</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body d-flex flex-wrap gap-2">
+                            <div class="row">
+                                <!-- Dynamic images -->
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secondary Modal for individual image with navigation -->
+            <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" style="max-width: 80%; height: auto;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body position-relative">
+                            <button class="btn btn-dark position-absolute top-50 start-0 translate-middle-y"
+                                id="prevBtn">
+                                &#10094; <!-- Left arrow -->
+                            </button>
+                            <img id="modalImagePreview" src="" alt="" style="width: 100%; height: auto;">
+                            <button class="btn btn-dark position-absolute top-50 end-0 translate-middle-y" id="nextBtn">
+                                &#10095; <!-- Right arrow -->
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Secondary Modal for individual images -->
+            <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" style="max-width: 80%; height: auto;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img id="modalImagePreview" src="" alt="" style="width: 100%; height: auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn img-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <img src="./guy-shows-document-girl-group-young-freelancers-office-have-conversation-working.jpg"
+                    alt="">
+            </button>
+
+            <!-- Main Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg" style="max-width: 90%; height: 90%;">
+                    <div class="modal-content" style="height: 90%;">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Gallery</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body d-flex flex-wrap gap-2">
+                            <div class="row">
+                                <!-- Dynamic images -->
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                                <div class="col col-12 col-s-12 col-md-3">
+                                    <img src="./torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                        alt="" class="modal-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secondary Modal for individual image with navigation -->
+            <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" style="max-width: 80%; height: auto;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body position-relative">
+                            <button class="btn btn-dark position-absolute top-50 start-0 translate-middle-y"
+                                id="prevBtn">
+                                &#10094; <!-- Left arrow -->
+                            </button>
+                            <img id="modalImagePreview" src="" alt="" style="width: 100%; height: auto;">
+                            <button class="btn btn-dark position-absolute top-50 end-0 translate-middle-y" id="nextBtn">
+                                &#10095; <!-- Right arrow -->
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Secondary Modal for individual images -->
+            <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" style="max-width: 80%; height: auto;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img id="modalImagePreview" src="" alt="" style="width: 100%; height: auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+        let currentIndex = 0;
+        const images = Array.from(document.querySelectorAll('.modal-img'));
+
+        // Function to update the image in the secondary modal
+        function updateImageModal(index) {
+            const modalImage = document.getElementById('modalImagePreview');
+            modalImage.src = images[index].src;
+        }
+
+        // Add click event to all gallery images
+        images.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                currentIndex = index;
+                updateImageModal(currentIndex);
+                const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+                imageModal.show();
+            });
+        });
+
+        // Navigate to the previous image
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            updateImageModal(currentIndex);
+        });
+
+        // Navigate to the next image
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            updateImageModal(currentIndex);
+        });
+
+    </script>
+
+
+
+
+    <footer style="background-color: #2c3e50; color: #ecf0f1; padding: 40px 20px; font-family: Arial, sans-serif;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
+
+            <!-- About Section -->
+            <div style="flex: 1 1 300px; margin-bottom: 20px; padding-right: 20px;">
+                <h3>About Us</h3>
+                <p>
+                    [Website Name] is your trusted source for the latest political news, analysis, and opinions.
+                    We are committed to delivering unbiased reporting and fostering informed discussions.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div style="flex: 1 1 200px; margin-bottom: 20px;">
+                <h3>Quick Links</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="/about" style="color: #ecf0f1; text-decoration: none;">About</a></li>
+                    <li><a href="/contact" style="color: #ecf0f1; text-decoration: none;">Contact Us</a></li>
+                    <li><a href="/privacy" style="color: #ecf0f1; text-decoration: none;">Privacy Policy</a></li>
+                    <li><a href="/terms" style="color: #ecf0f1; text-decoration: none;">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter Signup -->
+            <div style="flex: 1 1 300px; margin-bottom: 20px;">
+                <h3>Stay Informed</h3>
+                <p>Subscribe to our newsletter for the latest updates.</p>
+                <form>
+                    <input type="email" placeholder="Enter your email"
+                        style="padding: 10px; width: 80%; max-width: 250px; margin-bottom: 10px; border: none; border-radius: 4px;">
+                    <button type="submit"
+                        style="padding: 10px 20px; background-color: #3498db; color: #ecf0f1; border: none; border-radius: 4px; cursor: pointer;">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+
+            <!-- Social Media Links -->
+            <div style="flex: 1 1 200px; margin-bottom: 20px;">
+                <h3>Follow Us</h3>
+                <div style="display: flex; gap: 10px;">
+                    <a href="https://facebook.com" target="_blank"
+                        style="color: #ecf0f1; text-decoration: none;">Facebook</a>
+                    <a href="https://twitter.com" target="_blank"
+                        style="color: #ecf0f1; text-decoration: none;">Twitter</a>
+                    <a href="https://instagram.com" target="_blank"
+                        style="color: #ecf0f1; text-decoration: none;">Instagram</a>
+                    <a href="https://youtube.com" target="_blank"
+                        style="color: #ecf0f1; text-decoration: none;">YouTube</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div style="text-align: center; margin-top: 20px; border-top: 1px solid #34495e; padding-top: 20px;">
+            <p>&copy; 2024 [Website Name]. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
